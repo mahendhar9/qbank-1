@@ -7,7 +7,12 @@ module.exports = function(grunt){
   'bower_components/angular/angular.js',
   'bower_components/angular-ui-router/release/angular-ui-router.js',
   'bower_components/jquery/dist/jquery.js',
-  'bower_components/bootstrap/dist/js/bootstrap.js'
+  'bower_components/bootstrap/dist/js/bootstrap.js',
+  'assets/js/src/app.js',
+  'assets/js/src/config/routes.js',
+  'assets/js/src/controllers/homeCtrl.js',
+  'assets/js/src/controllers/signupCtrl.js',
+  'assets/js/src/services/authenticationService.js'
   ];
   grunt.initConfig({
     sass: {

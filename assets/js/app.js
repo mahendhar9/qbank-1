@@ -44846,3 +44846,58 @@ if (typeof jQuery === 'undefined') {
   })
 
 }(jQuery);
+
+Parse.initialize("swKi6RSSRyXanjZh6fMrFYmE3miRfAa30Cl8mF1J", "FNhvx2Z913e0NjEUPLoLirw4BTW9GN8eugs4HZZF");
+
+angular.module('Qbank', ['ui.router']);
+angular.module('Qbank')
+  .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
+    $urlRouterProvider.otherwise("/");
+    $stateProvider
+      .state('home', {
+        url: "/",
+        templateUrl: "views/home.tmpl.html",
+        controller: "HomeCtrl",
+        controllerAs: "homeCtrl",
+        authenticate: false
+      })
+      .state('signup', {
+        url: "/signup",
+        templateUrl: "views/signup.tmpl.html",
+        controller: "SignupCtrl",
+        controllerAs: "signupCtrl",
+        authenticate: false
+      });
+     
+  }]);
+angular.module('Qbank')
+  .controller('HomeCtrl', function(){
+    var homeCtrl = this;
+  });
+angular.module('Qbank')
+.controller('SignupCtrl', function(AuthenticationService){
+  var signupCtrl = this;
+
+  signupCtrl.user= {};
+
+  signupCtrl.signup =function(){
+    var username=signupCtrl.user.username;
+    var password=signupCtrl.user.password;
+    AuthenticationService.signup(username,password);
+  }
+});
+angular.module('Qbank')
+  .service('AuthenticationService', function(){
+    var AuthenticationService = this;
+    
+    AuthenticationService.signup = function(username, password) {
+      Parse.User.signUp(username, password, null, {
+        success: function(user) {
+          console.log("Signedup as " + user.get("username"));
+        }, error: function(user, error) {
+          console.log("Error signing up: " + error.message);
+        }
+      });
+    };
+
+  });

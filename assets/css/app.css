@@ -6800,7 +6800,8 @@ button.close {
 /*# sourceMappingURL=bootstrap.css.map */
 
 body {
-  font-family: 'Open Sans', sans-serif; }
+  font-family: 'Open Sans', sans-serif;
+  overflow-x: hidden; }
 
 #home {
   min-height: 100vh;
@@ -6845,7 +6846,7 @@ body {
 #h1 {
   font-family: 'Satisfy', cursive; }
 
-button {
+.button {
   margin-top: 20px;
   margin-left: 8vw; }
 
@@ -6863,5 +6864,14 @@ button {
   top: 25vh;
   color: #fff;
   font-weight: bold; }
+
+.signup-row {
+  margin-top: 32vh; }
+  .signup-row form {
+    text-align: center; }
+    .signup-row form button {
+      width: 100%; }
+    .signup-row form .signup-input {
+      text-align: center; }
 
 /*# sourceMappingURL=app.css.map */
