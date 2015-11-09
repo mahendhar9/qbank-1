@@ -1,12 +1,13 @@
 module.exports = function(grunt){
   var cssFiles = [
-  'assets/bower_components/bootstrap/dist/css/bootstrap.css'
+  'bower_components/bootstrap/dist/css/bootstrap.css',
+  'assets/css/src/app.css'
   ];
   var jsFiles = [
-  'assets/bower_components/angular/angular.js',
-  'assets/bower_components/angular-ui-router/release/angular-ui-router.js',
-  'assets/bower_components/jquery/dist/jquery.js',
-  'assets/bower_components/bootstrap/dist/js/bootstrap.js'
+  'bower_components/angular/angular.js',
+  'bower_components/angular-ui-router/release/angular-ui-router.js',
+  'bower_components/jquery/dist/jquery.js',
+  'bower_components/bootstrap/dist/js/bootstrap.js'
   ];
   grunt.initConfig({
     sass: {
