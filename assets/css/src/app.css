@@ -65,12 +65,20 @@ body {
   font-weight: bold; }
 
 .signup-row {
-  margin-top: 32vh; }
+  margin-top: 23vh; }
   .signup-row form {
     text-align: center; }
     .signup-row form button {
       width: 100%; }
     .signup-row form .signup-input {
       text-align: center; }
+  .signup-row h3 {
+    margin-left: 42%;
+    margin-bottom: 20px;
+    border: 1px solid #D9534F;
+    height: 39px;
+    padding: 5px 12px;
+    width: 104px;
+    color: #D9534F; }
 
 /*# sourceMappingURL=app.css.map */

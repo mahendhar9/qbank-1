@@ -1,0 +1,22 @@
+<div class="row signup-row">
+  <h3>Qbank</h3>
+  <form class="form-horizontal">
+    <div class="form-group">
+      <div class="col-sm-offset-4 col-sm-3">
+        <input type="email" ng-model="loginCtrl.user.username" class="form-control signup-input" placeholder="Enter your email">
+      </div>
+
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-4 col-sm-3">
+        <input type="password" ng-model='loginCtrl.user.password' class="form-control signup-input" placeholder="Enter your password">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-4 col-sm-3">
+        <button type="submit" ng-click='loginCtrl.login()' class="btn btn-danger">Login</button>
+      </div>
+    </div>
+  </form>
+</div>

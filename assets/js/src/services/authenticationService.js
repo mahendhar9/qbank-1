@@ -11,5 +11,15 @@ angular.module('Qbank')
         }
       });
     };
+      AuthenticationService.login = function(username, password) {
+      Parse.User.logIn(username, password, {
+        success: function(user) {
+          console.log("Logged in as " + user.get("username"));
+          // $state.go('projects')
+        }, error: function(user, error) {
+          console.log("Error logging in: " + error.message);
+        }
+      });
+    };
 
   });

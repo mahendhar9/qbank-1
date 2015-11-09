@@ -10,9 +10,11 @@ module.exports = function(grunt){
   'bower_components/bootstrap/dist/js/bootstrap.js',
   'assets/js/src/app.js',
   'assets/js/src/config/routes.js',
+  'assets/js/src/services/authenticationService.js',
   'assets/js/src/controllers/homeCtrl.js',
   'assets/js/src/controllers/signupCtrl.js',
-  'assets/js/src/services/authenticationService.js'
+  'assets/js/src/controllers/loginCtrl.js',
+  'assets/js/src/services/qaService.js'
   ];
   grunt.initConfig({
     sass: {

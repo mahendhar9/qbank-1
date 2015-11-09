@@ -15,6 +15,14 @@ angular.module('Qbank')
         controller: "SignupCtrl",
         controllerAs: "signupCtrl",
         authenticate: false
+      })
+      .state('login', {
+        url: "/login",
+        templateUrl: "views/login.tmpl.html",
+        controller: "LoginCtrl",
+        controllerAs: "loginCtrl",
+        authenticate: false
       });
+     
      
   }]);

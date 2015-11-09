@@ -1,5 +1,5 @@
 .signup-row{
-  margin-top:32vh;
+  margin-top:23vh;
 
   form {
     text-align: center;
@@ -10,5 +10,15 @@
     .signup-input{
       text-align: center;
     }
+  }
+
+  h3 {
+    margin-left: 42%;
+    margin-bottom: 20px;
+    border: 1px solid #D9534F;
+    height: 39px;
+    padding: 5px 12px;
+    width: 104px;
+    color: #D9534F
   }
 }

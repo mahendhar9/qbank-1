@@ -44867,9 +44867,43 @@ angular.module('Qbank')
         controller: "SignupCtrl",
         controllerAs: "signupCtrl",
         authenticate: false
+      })
+      .state('login', {
+        url: "/login",
+        templateUrl: "views/login.tmpl.html",
+        controller: "LoginCtrl",
+        controllerAs: "loginCtrl",
+        authenticate: false
       });
      
+     
   }]);
+angular.module('Qbank')
+  .service('AuthenticationService', function(){
+    var AuthenticationService = this;
+    
+    AuthenticationService.signup = function(username, password) {
+      Parse.User.signUp(username, password, null, {
+        success: function(user) {
+          console.log("Signedup as " + user.get("username"));
+        }, error: function(user, error) {
+          console.log("Error signing up: " + error.message);
+        }
+      });
+    };
+      AuthenticationService.login = function(username, password) {
+      Parse.User.logIn(username, password, {
+        success: function(user) {
+          console.log("Logged in as " + user.get("username"));
+          // $state.go('projects')
+        }, error: function(user, error) {
+          console.log("Error logging in: " + error.message);
+        }
+      });
+    };
+
+  });
+
 angular.module('Qbank')
   .controller('HomeCtrl', function(){
     var homeCtrl = this;
@@ -44887,17 +44921,24 @@ angular.module('Qbank')
   }
 });
 angular.module('Qbank')
-  .service('AuthenticationService', function(){
-    var AuthenticationService = this;
-    
-    AuthenticationService.signup = function(username, password) {
-      Parse.User.signUp(username, password, null, {
-        success: function(user) {
-          console.log("Signedup as " + user.get("username"));
-        }, error: function(user, error) {
-          console.log("Error signing up: " + error.message);
-        }
-      });
-    };
+.controller('LoginCtrl', function(AuthenticationService){
+  var loginCtrl = this;
 
-  });
+  loginCtrl.user= {};
+
+  loginCtrl.login =function(){
+    var username=loginCtrl.user.username;
+    var password=loginCtrl.user.password;
+    AuthenticationService.login(username,password);
+  }
+});
+angular.module('Qbank')
+.service('QAService', function(){
+  var QAService = this;
+  var QA = Parse.Object.extend('QA');
+  QAService.create = function(){
+    var qaObj = new QA();
+    
+  } 
+
+  ]});
