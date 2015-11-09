@@ -11,10 +11,11 @@ module.exports = function(grunt){
   'assets/js/src/app.js',
   'assets/js/src/config/routes.js',
   'assets/js/src/services/authenticationService.js',
+  'assets/js/src/services/qaService.js',
   'assets/js/src/controllers/homeCtrl.js',
   'assets/js/src/controllers/signupCtrl.js',
   'assets/js/src/controllers/loginCtrl.js',
-  'assets/js/src/services/qaService.js'
+  'assets/js/src/controllers/newQaCtrl.js'
   ];
   grunt.initConfig({
     sass: {
