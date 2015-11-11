@@ -1,10 +1,12 @@
 angular.module('Qbank')
 .controller('NavCtrl', function(firebaseService, $state, $location){
   var navCtrl = this;
-  console.log($location.path())
+  console.log($location.path());
+
+  navCtrl.users = firebaseService.users;
 
   navCtrl.navColor = function() {
-    if ($location.path() == '/' ) {
+    if ($location.path() == ('/' || '')) {
       return false;
     } else {
       return true;
@@ -15,22 +17,26 @@ angular.module('Qbank')
     return firebaseService.currentUser;
   }
 
-  navCtrl.users = firebaseService.users;
-
-  navCtrl.getScore = function() {
-    var userScore;
-    angular.forEach(navCtrl.users, function(user) {
-      if (navCtrl.currentUser().uid == user.uid) {
-        userScore = user.score;
-      }
-    });
-    return userScore;
+  navCtrl.getScore = function(query) {
+    return firebaseService.queryUser(query);
   }
 
   navCtrl.logout = firebaseService.logout;
 
   navCtrl.isLoggedIn = function() {
     return firebaseService.isLoggedIn;
+  }
+
+  navCtrl.userRole = function() {
+    return firebaseService.queryUser("role");
+  }
+
+  navCtrl.isUserAdmin = function() {
+    if (navCtrl.userRole() == 1) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   navCtrl.logText = function() {

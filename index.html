@@ -37,9 +37,10 @@
         <ul class="nav navbar-nav">
           <li class="active"><a ui-sref="home">Home</a></li>
           <li ng-show = "navCtrl.isLoggedIn()" class="active"><a ui-sref="subjects">Subjects</a></li>
+          <li ng-show = "navCtrl.isLoggedIn() && navCtrl.isUserAdmin()" class="active"><a ui-sref="newQA">Add Question</a></li>
           <li ng-show = "navCtrl.isLoggedIn()" class="active"><a ui-sref="profile">{{navCtrl.currentUser().password.email}}</a></li>
-          <li ng-show = "navCtrl.isLoggedIn()" class="active"><a ui-sref="profile"><span class="score-text">Score - {{navCtrl.getScore()}}</span></a></li>
-          <li ng-show = "navCtrl.isLoggedIn()"><a ng-click="navCtrl.logout()" href="#">Logout</a></li>
+          <li ng-show = "navCtrl.isLoggedIn() && !navCtrl.isUserAdmin()" class="active"><a ui-sref="profile"><span class="score-text">Score - {{navCtrl.getScore("score")}}</span></a></li>
+          <li ng-show = "navCtrl.isLoggedIn()"><a ng-click="navCtrl.logout()" ui-sref = "home">Logout</a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>

@@ -43,6 +43,7 @@ angular.module('Qbank')
         firebaseService.userObj.uid = authData.uid;
         firebaseService.userObj.email = authData.password.email;
         firebaseService.userObj.score = 0;
+        firebaseService.userObj.role = 2;
 
         // Check if user exists
         firebaseService.userRef.child(firebaseService.userObj.uid).once('value', function(snapshot) {
@@ -60,33 +61,47 @@ angular.module('Qbank')
         firebaseService.logText = "Logout";
       }
     });
+};
+
+firebaseService.logout = function() {
+  firebaseService.auth.$unauth();
+  $state.go('home');
+  // $state.go('home', {}, {reload: true});
+}
+
+firebaseService.create = function(question, option1, option2, option3, correctOption, subjectCategory) {
+  var qaObj = {
+    question: question,
+    option1: option1,
+    option2: option2,
+    option3: option3,
+    correctOption: correctOption,
+    subjectCategory: subjectCategory
   };
+  firebaseService.questions.$add(qaObj);
+}
 
-  firebaseService.logout = function() {
-    firebaseService.auth.$unauth();
-    $state.go('home');
-  }
-
-  firebaseService.create = function(question, option1, option2, option3, correctOption, subjectCategory) {
-    var qaObj = {
-      question: question,
-      option1: option1,
-      option2: option2,
-      option3: option3,
-      correctOption: correctOption,
-      subjectCategory: subjectCategory
-    };
-    firebaseService.questions.$add(qaObj);
-  }
-
-  firebaseService.auth.$onAuth(function(authData) {
-    if (authData) {
-      console.log(authData);
-      firebaseService.currentUser = authData;
-      firebaseService.isLoggedIn = true;
-    } else {
-      console.log("AuthData LoggedOut" );
-      firebaseService.isLoggedIn = false;
+firebaseService.queryUser = function(query) {
+  var queryUser;
+  var query = query;
+  angular.forEach(firebaseService.users, function(user) {
+    if (firebaseService.currentUser) {
+      if (firebaseService.currentUser.uid == user.uid) {
+        queryUser = user[query];
+      }
     }
   });
+  return queryUser;
+}
+
+firebaseService.auth.$onAuth(function(authData) {
+  if (authData) {
+    console.log(authData);
+    firebaseService.currentUser = authData;
+    firebaseService.isLoggedIn = true;
+  } else {
+    console.log("AuthData LoggedOut" );
+    firebaseService.isLoggedIn = false;
+  }
+});
 });

@@ -16085,6 +16085,7 @@ angular.module('Qbank')
         firebaseService.userObj.uid = authData.uid;
         firebaseService.userObj.email = authData.password.email;
         firebaseService.userObj.score = 0;
+        firebaseService.userObj.role = 2;
 
         // Check if user exists
         firebaseService.userRef.child(firebaseService.userObj.uid).once('value', function(snapshot) {
@@ -16102,35 +16103,49 @@ angular.module('Qbank')
         firebaseService.logText = "Logout";
       }
     });
+};
+
+firebaseService.logout = function() {
+  firebaseService.auth.$unauth();
+  $state.go('home');
+  // $state.go('home', {}, {reload: true});
+}
+
+firebaseService.create = function(question, option1, option2, option3, correctOption, subjectCategory) {
+  var qaObj = {
+    question: question,
+    option1: option1,
+    option2: option2,
+    option3: option3,
+    correctOption: correctOption,
+    subjectCategory: subjectCategory
   };
+  firebaseService.questions.$add(qaObj);
+}
 
-  firebaseService.logout = function() {
-    firebaseService.auth.$unauth();
-    $state.go('home');
-  }
-
-  firebaseService.create = function(question, option1, option2, option3, correctOption, subjectCategory) {
-    var qaObj = {
-      question: question,
-      option1: option1,
-      option2: option2,
-      option3: option3,
-      correctOption: correctOption,
-      subjectCategory: subjectCategory
-    };
-    firebaseService.questions.$add(qaObj);
-  }
-
-  firebaseService.auth.$onAuth(function(authData) {
-    if (authData) {
-      console.log(authData);
-      firebaseService.currentUser = authData;
-      firebaseService.isLoggedIn = true;
-    } else {
-      console.log("AuthData LoggedOut" );
-      firebaseService.isLoggedIn = false;
+firebaseService.queryUser = function(query) {
+  var queryUser;
+  var query = query;
+  angular.forEach(firebaseService.users, function(user) {
+    if (firebaseService.currentUser) {
+      if (firebaseService.currentUser.uid == user.uid) {
+        queryUser = user[query];
+      }
     }
   });
+  return queryUser;
+}
+
+firebaseService.auth.$onAuth(function(authData) {
+  if (authData) {
+    console.log(authData);
+    firebaseService.currentUser = authData;
+    firebaseService.isLoggedIn = true;
+  } else {
+    console.log("AuthData LoggedOut" );
+    firebaseService.isLoggedIn = false;
+  }
+});
 });
 angular.module('Qbank')
   .controller('HomeCtrl', function(){
@@ -16139,10 +16154,12 @@ angular.module('Qbank')
 angular.module('Qbank')
 .controller('NavCtrl', function(firebaseService, $state, $location){
   var navCtrl = this;
-  console.log($location.path())
+  console.log($location.path());
+
+  navCtrl.users = firebaseService.users;
 
   navCtrl.navColor = function() {
-    if ($location.path() == '/' ) {
+    if ($location.path() == ('/' || '')) {
       return false;
     } else {
       return true;
@@ -16153,22 +16170,26 @@ angular.module('Qbank')
     return firebaseService.currentUser;
   }
 
-  navCtrl.users = firebaseService.users;
-
-  navCtrl.getScore = function() {
-    var userScore;
-    angular.forEach(navCtrl.users, function(user) {
-      if (navCtrl.currentUser().uid == user.uid) {
-        userScore = user.score;
-      }
-    });
-    return userScore;
+  navCtrl.getScore = function(query) {
+    return firebaseService.queryUser(query);
   }
 
   navCtrl.logout = firebaseService.logout;
 
   navCtrl.isLoggedIn = function() {
     return firebaseService.isLoggedIn;
+  }
+
+  navCtrl.userRole = function() {
+    return firebaseService.queryUser("role");
+  }
+
+  navCtrl.isUserAdmin = function() {
+    if (navCtrl.userRole() == 1) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   navCtrl.logText = function() {
