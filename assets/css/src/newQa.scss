@@ -81,11 +81,26 @@
 
 .questions-row {
   margin-top: 2vh;
+
+  .btn-default {
+    font-family: 'Bitter', sans-serif;
+    font-size: 14px;
+    color: #4A4545;
+  }
+
+  h4 {
+    font-family: 'Bitter', sans-serif;
+    color: #4A4545;
+  }
+
+  .btn-sm {
+    font-size: 13px;
+  }
 }
 
 .score-text {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
-  border: 1px solid #fff;
+  border: 1px solid #D0D0CA;
   padding: 5px;
 }

@@ -30,8 +30,9 @@ body {
 
 .navbar-inverse .navbar-brand {
   border: 1px solid #fff;
-  padding: 6px 21px;
-  height: 36px;
+  box-shadow: 2px 1px 9px 2px #DCD3D3;
+  padding: 5px 14px;
+  height: 34px;
   margin-top: 7px;
   font-weight: bold; }
 
@@ -67,9 +68,6 @@ body {
   top: 25vh;
   color: #fff;
   font-weight: bold; }
-
-.btn {
-  font-size: 13px; }
 
 .signup-row {
   margin-top: 23vh; }
@@ -140,11 +138,20 @@ body {
 
 .questions-row {
   margin-top: 2vh; }
+  .questions-row .btn-default {
+    font-family: 'Bitter', sans-serif;
+    font-size: 14px;
+    color: #4A4545; }
+  .questions-row h4 {
+    font-family: 'Bitter', sans-serif;
+    color: #4A4545; }
+  .questions-row .btn-sm {
+    font-size: 13px; }
 
 .score-text {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
-  border: 1px solid #fff;
+  border: 1px solid #D0D0CA;
   padding: 5px; }
 
 .subjects-row {
@@ -154,6 +161,7 @@ body {
 
 .maths, .science, .social {
   border: 1px solid #ccc;
+  box-shadow: 4px 3px 14px 4px #ccc;
   height: 30vh;
   width: 20vw;
   padding: 45px 0px; }

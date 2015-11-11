@@ -5,16 +5,16 @@ angular.module('Qbank')
 
   navCtrl.navColor = function() {
     if ($location.path() == '/' ) {
-      return "false";
+      return false;
     } else {
-      return 'true';
+      return true;
     }
   }
 
   navCtrl.currentUser = function() {
     return firebaseService.currentUser;
   }
-  
+
   navCtrl.users = firebaseService.users;
 
   navCtrl.getScore = function() {
@@ -32,9 +32,6 @@ angular.module('Qbank')
   navCtrl.isLoggedIn = function() {
     return firebaseService.isLoggedIn;
   }
-
-  
-
 
   navCtrl.logText = function() {
     return firebaseService.logText;

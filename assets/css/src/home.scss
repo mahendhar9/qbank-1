@@ -37,8 +37,9 @@ body {
 
 .navbar-inverse .navbar-brand {
   border: 1px solid #fff;
-  padding: 6px 21px;
-  height: 36px;
+  box-shadow: 2px 1px 9px 2px #DCD3D3;
+  padding: 5px 14px;
+  height: 34px;
   margin-top: 7px;
   font-weight: bold;
 }
@@ -83,7 +84,5 @@ body {
   font-weight: bold;
 }
 
-.btn {
-  font-size: 13px;
-}
+
 
