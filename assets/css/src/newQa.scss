@@ -58,6 +58,34 @@
   }
 }
 
+.score-row {
+  margin-top: 9vh;
+
+  h2 {
+    color: #d9534f;
+    font-family: 'Satisfy', cursive;
+    margin-bottom: 3px;
+    /*position: relative;
+    left: 34px;*/
+  }
+
+  hr {
+    border-bottom:2px solid #d9534f;
+    width: 9%;
+    margin: 0;
+    position: relative;
+    left: 26vw;
+  }
+  
+}
+
 .questions-row {
-  margin-top: 13vh;
+  margin-top: 2vh;
+}
+
+.score-text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  border: 1px solid #fff;
+  padding: 5px;
 }

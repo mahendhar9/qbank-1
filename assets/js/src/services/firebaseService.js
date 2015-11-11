@@ -81,8 +81,8 @@ angular.module('Qbank')
 
   firebaseService.auth.$onAuth(function(authData) {
     if (authData) {
-      console.log("AuthData LoggedIn");
-      firebaseService.currentUser = authData.password.email;
+      console.log(authData);
+      firebaseService.currentUser = authData;
       firebaseService.isLoggedIn = true;
     } else {
       console.log("AuthData LoggedOut" );

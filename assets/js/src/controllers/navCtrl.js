@@ -11,15 +11,30 @@ angular.module('Qbank')
     }
   }
 
+  navCtrl.currentUser = function() {
+    return firebaseService.currentUser;
+  }
+  
+  navCtrl.users = firebaseService.users;
+
+  navCtrl.getScore = function() {
+    var userScore;
+    angular.forEach(navCtrl.users, function(user) {
+      if (navCtrl.currentUser().uid == user.uid) {
+        userScore = user.score;
+      }
+    });
+    return userScore;
+  }
+
   navCtrl.logout = firebaseService.logout;
 
   navCtrl.isLoggedIn = function() {
     return firebaseService.isLoggedIn;
   }
 
-  navCtrl.currentUser = function() {
-    return firebaseService.currentUser;
-  }
+  
+
 
   navCtrl.logText = function() {
     return firebaseService.logText;

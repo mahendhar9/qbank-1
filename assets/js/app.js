@@ -16123,8 +16123,8 @@ angular.module('Qbank')
 
   firebaseService.auth.$onAuth(function(authData) {
     if (authData) {
-      console.log("AuthData LoggedIn");
-      firebaseService.currentUser = authData.password.email;
+      console.log(authData);
+      firebaseService.currentUser = authData;
       firebaseService.isLoggedIn = true;
     } else {
       console.log("AuthData LoggedOut" );
@@ -16149,15 +16149,30 @@ angular.module('Qbank')
     }
   }
 
+  navCtrl.currentUser = function() {
+    return firebaseService.currentUser;
+  }
+  
+  navCtrl.users = firebaseService.users;
+
+  navCtrl.getScore = function() {
+    var userScore;
+    angular.forEach(navCtrl.users, function(user) {
+      if (navCtrl.currentUser().uid == user.uid) {
+        userScore = user.score;
+      }
+    });
+    return userScore;
+  }
+
   navCtrl.logout = firebaseService.logout;
 
   navCtrl.isLoggedIn = function() {
     return firebaseService.isLoggedIn;
   }
 
-  navCtrl.currentUser = function() {
-    return firebaseService.currentUser;
-  }
+  
+
 
   navCtrl.logText = function() {
     return firebaseService.logText;
@@ -16224,12 +16239,28 @@ angular.module('Qbank')
   var profileCtrl = this;
 });
 angular.module('Qbank')
-.controller('ShowQaCtrl', function(firebaseService, $stateParams){
+.controller('ShowQaCtrl', function(firebaseService, $stateParams, $location){
   var showQaCtrl = this;
   showQaCtrl.correct = false;
   showQaCtrl.submitText = "Submit"
   showQaCtrl.subjectId = $stateParams.subjectId;
   console.log(showQaCtrl.subjectId);
+
+  showQaCtrl.currentUser = function() {
+    return firebaseService.currentUser;
+  }
+
+  showQaCtrl.subjectName = function() {
+    if($stateParams.subjectId == 1) {
+      return "Maths";
+    } else if ($stateParams.subjectId == 2) {
+      return "Science";
+    } else if ($stateParams.subjectId == 3) {
+      return "Social";
+    }
+  }
+
+  showQaCtrl.users = firebaseService.users;
 
   showQaCtrl.questions = function() {
     var questions = [];
@@ -16243,18 +16274,25 @@ angular.module('Qbank')
 
   showQaCtrl.check = function(obj, id) {
     showQaCtrl.optionValue = obj.target.attributes.data.value;
-    console.log(showQaCtrl.optionValue);
   }
+
+  showQaCtrl.addScore = function() {
+    angular.forEach(showQaCtrl.users, function(user) {
+      if (showQaCtrl.currentUser().uid == user.uid) {
+        user.score += 1;
+        showQaCtrl.users.$save(user);
+      }
+    })
+  };
 
   showQaCtrl.submit = function(correctAnswer, qa) {
     qa.submitted = true;
     showQaCtrl.addBorder = showQaCtrl.answerBorder(correctAnswer, qa);
     if (showQaCtrl.optionValue == correctAnswer) {
-      showQaCtrl.submitText = "Correct";
       qa.correct = true;
+      showQaCtrl.addScore();
       qa.faIcon = "fa fa-check-circle-o";
     } else {
-      showQaCtrl.submitText = "Wrong";
       qa.correct = false;
       qa.faIcon = "fa fa-times-circle-o";
     }

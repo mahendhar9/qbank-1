@@ -1,4 +1,9 @@
 <div class="container">
+  <div class="row score-row">
+    <div class="col-md-offset-2 col-md-8 text-center">
+      <h2>{{showQaCtrl.subjectName()}}</h2><hr>
+    </div>
+  </div>
   <div class="row questions-row">
     <div ng-repeat = "qa in showQaCtrl.questions()">
       <div class="row qa-repeat-row">
@@ -9,7 +14,7 @@
           <button type="button" class="btn btn-default qa-option" data="1" ng-click="showQaCtrl.check($event)" ng-class="{ 'answer-border': showCtrl.addBorder}">{{qa.option1}}</button>
           <button type="button" class="btn btn-default qa-option" data="2" ng-click="showQaCtrl.check($event)" ng-class="{ 'answer-border': showCtrl.addBorder}">{{qa.option2}}</button>
           <button type="button" class="btn btn-default qa-option" data="3" ng-click="showQaCtrl.check($event)" ng-class="{ 'answer-border': showCtrl.addBorder}">{{qa.option3}}</button><br>
-          <button type="button" class="btn btn-danger qa-submit" ng-class="{ 'correct-answer': qa.correct}" ng-disabled = "qa.submitted" ng-click = "showQaCtrl.submit(qa.correctOption, qa)">Submit</button>
+          <button type="button" class="btn btn-danger btn-sm qa-submit" ng-class="{ 'correct-answer': qa.correct}" ng-disabled = "qa.submitted" ng-click = "showQaCtrl.submit(qa.correctOption, qa)">SUBMIT</button>
           <br><br><hr>
         </div>
       </div>
