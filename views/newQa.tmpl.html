@@ -1,1 +1,58 @@
-newqa.tmpl.html
+<div class="container">
+  <div class="row newqa-row">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-offset-3 col-sm-2 control-label">Question</label>
+        <div class="col-sm-3">
+          <input type="text" ng-model="newQaCtrl.qaObj.question" class="form-control signup-input" placeholder="">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-offset-3 col-sm-2 control-label">Option 1</label>
+        <div class="col-sm-3">
+          <input type="text" ng-model='newQaCtrl.qaObj.option1' class="form-control signup-input" placeholder="">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-offset-3 col-sm-2 control-label">Option 2</label>
+        <div class="col-sm-3">
+          <input type="text" ng-model='newQaCtrl.qaObj.option2' class="form-control signup-input" placeholder="">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-offset-3 col-sm-2 control-label">Option 3</label>
+        <div class="col-sm-3">
+          <input type="text" ng-model='newQaCtrl.qaObj.option3' class="form-control signup-input" placeholder="">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-offset-3 col-sm-2 control-label">Correct Option</label>
+        <div class="col-sm-3">
+          <input type="number" ng-model='newQaCtrl.qaObj.correctOption' class="form-control signup-input" placeholder="">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-offset-3 col-sm-2 control-label">Category</label>
+        <div class="col-sm-3">
+          <select name="subject" ng-model="newQaCtrl.qaObj.subjectCategory" class="form-control">
+          <option value="1">Maths</option>
+            <option value="2">Science</option>
+            <option value="3">Social</option>
+          </select><br>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-5 col-sm-3">
+          <button type="submit" ng-click='newQaCtrl.submit()' class="btn btn-danger">Submit Question</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+

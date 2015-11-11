@@ -4,7 +4,6 @@ module.exports = function(grunt){
   'assets/css/src/app.css'
   ];
   var jsFiles = [
-  'bower_components/angular/angular.js',
   'bower_components/angular-ui-router/release/angular-ui-router.js',
   'bower_components/jquery/dist/jquery.js',
   'bower_components/bootstrap/dist/js/bootstrap.js',
@@ -12,10 +11,15 @@ module.exports = function(grunt){
   'assets/js/src/config/routes.js',
   'assets/js/src/services/authenticationService.js',
   'assets/js/src/services/qaService.js',
+  'assets/js/src/services/firebaseService.js',
   'assets/js/src/controllers/homeCtrl.js',
+  'assets/js/src/controllers/navCtrl.js',
   'assets/js/src/controllers/signupCtrl.js',
   'assets/js/src/controllers/loginCtrl.js',
-  'assets/js/src/controllers/newQaCtrl.js'
+  'assets/js/src/controllers/newQaCtrl.js',
+  'assets/js/src/controllers/profileCtrl.js',
+  'assets/js/src/controllers/showQaCtrl.js',
+  'assets/js/src/controllers/subjectsCtrl.js'
   ];
   grunt.initConfig({
     sass: {

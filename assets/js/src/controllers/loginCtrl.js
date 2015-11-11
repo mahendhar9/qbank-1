@@ -1,12 +1,14 @@
 angular.module('Qbank')
-.controller('LoginCtrl', function(AuthenticationService){
+.controller('LoginCtrl', function(firebaseService, $state){
   var loginCtrl = this;
 
   loginCtrl.user= {};
 
   loginCtrl.login =function(){
-    var username=loginCtrl.user.username;
+    var email=loginCtrl.user.email;
     var password=loginCtrl.user.password;
-    AuthenticationService.login(username,password);
+    firebaseService.login(email,password);
+    loginCtrl.user= {};
+    $state.go('subjects');
   }
 });

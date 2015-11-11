@@ -6809,8 +6809,12 @@ body {
   background-size: cover; }
 
 .navbar-inverse {
+  height: 50px;
   background-color: transparent;
   border-color: transparent; }
+
+.nav-color {
+  background-color: #444; }
 
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav > li > a {
   background-color: transparent;
@@ -6829,7 +6833,7 @@ body {
   border: 1px solid #fff;
   padding: 6px 21px;
   height: 36px;
-  margin-top: 12px;
+  margin-top: 7px;
   font-weight: bold; }
 
 .pos {
@@ -6881,5 +6885,64 @@ body {
     padding: 5px 12px;
     width: 104px;
     color: #D9534F; }
+
+.newqa-row {
+  margin-top: 25vh; }
+  .newqa-row form {
+    text-align: center; }
+  .newqa-row button {
+    width: 100%; }
+
+.qa-repeat-row {
+  margin-bottom: 20px; }
+  .qa-repeat-row hr {
+    border: 1px dashed #ddd;
+    border-color: #E5DCDC;
+    margin: 0; }
+  .qa-repeat-row .fa {
+    position: relative;
+    left: -10px; }
+  .qa-repeat-row .fa-check-circle-o {
+    color: green; }
+  .qa-repeat-row .fa-times-circle-o {
+    color: red; }
+  .qa-repeat-row .correct {
+    margin-left: 20px; }
+  .qa-repeat-row .correct-answer {
+    background-color: green;
+    border-color: green; }
+    .qa-repeat-row .correct-answer:hover {
+      background-color: green; }
+  .qa-repeat-row .qa-option {
+    margin-right: 7px;
+    margin-top: 7px; }
+  .qa-repeat-row .qa-submit {
+    margin-top: 10px; }
+  .qa-repeat-row .answer-border {
+    border-color: green; }
+
+.questions-row {
+  margin-top: 13vh; }
+
+.subjects-row {
+  margin-top: 30vh; }
+  .subjects-row a:hover, .subjects-row a.active {
+    text-decoration: none; }
+
+.maths, .science, .social {
+  border: 1px solid #ccc;
+  height: 30vh;
+  width: 20vw;
+  padding: 45px 0px; }
+  .maths h3, .science h3, .social h3 {
+    font-weight: bold; }
+
+.maths {
+  background: url("../images/maths.jpg");
+  background-size: cover; }
+
+.science {
+  background: url("../images/science.jpg");
+  background-size: cover; }
 
 /*# sourceMappingURL=app.css.map */

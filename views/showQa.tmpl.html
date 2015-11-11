@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row questions-row">
+    <div ng-repeat = "qa in showQaCtrl.questions()">
+      <div class="row qa-repeat-row">
+        <div class="col-md-offset-2 col-md-8 text-center">
+          <h4><span ng-show="qa.correct"><i class={{qa.faIcon}}></i></span><span ng-hide="qa.correct"><i class={{qa.faIcon}}></i></span>{{qa.question}}</h4>
+        </div>
+        <div class="col-md-offset-2 col-md-8 text-center">
+          <button type="button" class="btn btn-default qa-option" data="1" ng-click="showQaCtrl.check($event)" ng-class="{ 'answer-border': showCtrl.addBorder}">{{qa.option1}}</button>
+          <button type="button" class="btn btn-default qa-option" data="2" ng-click="showQaCtrl.check($event)" ng-class="{ 'answer-border': showCtrl.addBorder}">{{qa.option2}}</button>
+          <button type="button" class="btn btn-default qa-option" data="3" ng-click="showQaCtrl.check($event)" ng-class="{ 'answer-border': showCtrl.addBorder}">{{qa.option3}}</button><br>
+          <button type="button" class="btn btn-danger qa-submit" ng-class="{ 'correct-answer': qa.correct}" ng-disabled = "qa.submitted" ng-click = "showQaCtrl.submit(qa.correctOption, qa)">Submit</button>
+          <br><br><hr>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

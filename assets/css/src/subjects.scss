@@ -1,0 +1,31 @@
+.subjects-row {
+  margin-top:30vh;
+
+  a {
+    &:hover, &.active {
+      text-decoration: none;
+    }
+  }
+}
+
+.maths, .science, .social {
+  border: 1px solid #ccc;
+  height: 30vh;
+  width: 20vw;
+  padding: 45px 0px;
+
+  h3 {
+    font-weight: bold;
+  }
+  
+}
+
+.maths {
+  background: url("../images/maths.jpg");
+  background-size: cover;
+}
+
+.science {
+  background: url("../images/science.jpg");
+  background-size: cover;
+}

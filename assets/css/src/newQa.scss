@@ -1,0 +1,63 @@
+.newqa-row {
+  margin-top: 25vh;
+
+  form {
+    text-align: center;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+
+.qa-repeat-row {
+  margin-bottom: 20px;
+  hr {
+    border: 1px dashed #ddd;
+    border-color: #E5DCDC;
+    margin:0;
+  }
+
+  .fa {
+    position: relative;
+    left: -10px;
+  }
+
+  .fa-check-circle-o {
+    color: green;
+  }
+
+  .fa-times-circle-o {
+    color: red;
+  }
+
+  .correct {
+    margin-left: 20px;
+  }
+
+  .correct-answer {
+    background-color: green;
+    border-color: green;
+    &:hover {
+      background-color: green;
+    }
+  }
+
+  .qa-option {
+    margin-right: 7px;
+    margin-top: 7px;
+  }
+
+  .qa-submit {
+    margin-top: 10px;
+  }
+
+  .answer-border {
+    border-color: green;
+  }
+}
+
+.questions-row {
+  margin-top: 13vh;
+}
