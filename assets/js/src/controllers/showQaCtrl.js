@@ -1,5 +1,5 @@
 angular.module('Qbank')
-.controller('ShowQaCtrl', function($firebaseObject, firebaseService, $stateParams, $location){
+.controller('ShowQaCtrl', function($firebaseObject, firebaseService, $stateParams, $location, Flash){
   var showQaCtrl = this;
   showQaCtrl.correct = false;
   showQaCtrl.submitText = "Submit"
@@ -80,8 +80,9 @@ angular.module('Qbank')
     userObj.qaId = qa.$id;
     userObj.userId = currentUser;
     userObj.question = qa;
-
     showQaCtrl.userBookmarks.$add(userObj);
+    var message = "Bookmarked";
+    Flash.create('success', message);
 
   }
 

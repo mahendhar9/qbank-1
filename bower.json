@@ -19,6 +19,7 @@
     "bootstrap": "~3.3.5"
   },
   "devDependencies": {
-    "angular-ui-router": "~0.2.15"
+    "angular-ui-router": "~0.2.15",
+    "angular-flash-alert": "~1.1.1"
   }
 }

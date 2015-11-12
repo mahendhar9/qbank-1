@@ -7,6 +7,8 @@ module.exports = function(grunt){
   'bower_components/angular-ui-router/release/angular-ui-router.js',
   'bower_components/jquery/dist/jquery.js',
   'bower_components/bootstrap/dist/js/bootstrap.js',
+  'bower_components/angular-animate/angular-animate.min.js',
+  'bower_components/angular-flash-alert/dist/angular-flash.min.js',
   'assets/js/src/app.js',
   'assets/js/src/config/routes.js',
   'assets/js/src/services/authenticationService.js',

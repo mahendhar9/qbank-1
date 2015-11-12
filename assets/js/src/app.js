@@ -1,1 +1,1 @@
-angular.module('Qbank', ['ui.router', 'firebase']);
+angular.module('Qbank', ['ui.router', 'firebase', 'ngAnimate','flash']);

@@ -3,6 +3,9 @@
     <div class="col-md-offset-2 col-md-8 text-center">
       <h2>{{showQaCtrl.subjectName()}}</h2><hr>
     </div>
+    <div class="col-md-2">
+    <div flash-message="3000" ng-class="alertIn alertOut"></div>
+    </div>
   </div>
   <div class="row questions-row">
     <div ng-repeat = "qa in showQaCtrl.questions()">

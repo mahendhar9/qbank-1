@@ -6870,6 +6870,9 @@ body {
   color: #fff;
   font-weight: bold; }
 
+.alert-success {
+  margin-bottom: 0; }
+
 .signup-row {
   margin-top: 23vh; }
   .signup-row form {

@@ -3,12 +3,11 @@
     <div class="row">
       <h1 id = "school" class="pos"> School made easy! </h1>
       <h1 id ="h1" class="pos">Give your child a head start for life .</h1>
-      <a href="#/signup"id="signup" class="btn btn-danger btn-md pos button">SIGNUP</a>
-      <span class = "or"> OR </span>
-      <a href="#/login"id="login" class="btn btn-danger btn-md pos button">LOGIN</a>
-      <!-- <button id = "signup" type="button" class = "btn btn-danger btn-md pos">SIGNUP</button> -->
-      <!-- <button id = "login" type="button" class = "btn btn-danger btn-md pos button">LOGIN</button> -->
+      <span ng-hide="homeCtrl.isLoggedIn()">
+        <a href="#/signup"id="signup" class="btn btn-danger btn-md pos button">SIGNUP</a>
+        <span class = "or"> OR </span>
+        <a href="#/login"id="login" class="btn btn-danger btn-md pos button">LOGIN</a>
+      </span>
     </div>
-
   </div>
 </section>
