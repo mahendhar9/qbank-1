@@ -1,4 +1,9 @@
 <div class="container">
+  <div class="row score-row">
+    <div class="col-md-offset-2 col-md-8 text-center">
+    <h2>Add question</h2><hr>
+    </div>
+  </div>
   <div class="row newqa-row">
     <form class="form-horizontal">
       <div class="form-group">
@@ -32,7 +37,7 @@
       <div class="form-group">
         <label class="col-sm-offset-3 col-sm-2 control-label">Correct Option</label>
         <div class="col-sm-3">
-          <input type="number" ng-model='newQaCtrl.qaObj.correctOption' class="form-control signup-input" placeholder="">
+          <input type="number" ng-model='newQaCtrl.qaObj.correctOption' class="form-control signup-input" placeholder="1, 2 or 3">
         </div>
       </div>
 
@@ -40,7 +45,7 @@
         <label class="col-sm-offset-3 col-sm-2 control-label">Category</label>
         <div class="col-sm-3">
           <select name="subject" ng-model="newQaCtrl.qaObj.subjectCategory" class="form-control">
-          <option value="1">Maths</option>
+            <option value="1">Maths</option>
             <option value="2">Science</option>
             <option value="3">Social</option>
           </select><br>

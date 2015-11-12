@@ -47,6 +47,17 @@ angular.module('Qbank')
     })
   };
 
+  showQaCtrl.correctAnswer = function(qa) {
+    var answer = qa.correctOption;
+    if (answer == 1) {
+      return qa.option1;
+    } else if (answer == 2) {
+      return qa.option2;
+    } else if (answer == 3) {
+      return qa.option3;
+    }
+  }
+
   showQaCtrl.submit = function(correctAnswer, qa) {
     qa.submitted = true;
     // showQaCtrl.addBorder = showQaCtrl.answerBorder(correctAnswer, qa);
@@ -57,6 +68,7 @@ angular.module('Qbank')
     } else {
       qa.correct = false;
       qa.faIcon = "fa fa-times-circle-o";
+      qa.showCorrectAnswer = showQaCtrl.correctAnswer(qa); 
     }
   }
 
@@ -69,18 +81,10 @@ angular.module('Qbank')
     userObj.userId = currentUser;
     userObj.question = qa;
 
-    // angular.forEach(showQaCtrl.userBookmarks, function(bookmark){
-    //   if (bookmark.userId == currentUser) {
-    //     barray.push(bookmark);
-    //   }
-    // });
-    // angular.forEach(barray, function(singleBookmark){
-    //   if (indexOf(singleBookmark.)) {
-    //     barray.push(bookmark);
-    //   }
-    // });
     showQaCtrl.userBookmarks.$add(userObj);
 
   }
+
+  
 
 });

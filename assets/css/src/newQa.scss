@@ -1,5 +1,5 @@
 .newqa-row {
-  margin-top: 25vh;
+  margin-top: 7vh;
 
   form {
     text-align: center;
@@ -51,7 +51,15 @@
 
   .qa-submit {
     margin-top: 10px;
+    margin-bottom: 12px;
   }
+
+  .show-correct {
+    font-family: 'Bitter', sans-serif;
+    color: green;
+    font-size: 15px;
+  }
+
 
   .answer-border {
     border-color: green;
