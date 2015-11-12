@@ -6952,6 +6952,12 @@ body {
     font-size: 15px; }
   .qa-repeat-row .answer-border {
     border-color: green; }
+  .qa-repeat-row .delete-question {
+    position: relative;
+    top: 3px;
+    right: 40px;
+    color: #d9534f;
+    cursor: pointer; }
 
 .score-row {
   margin-top: 9vh; }
@@ -6981,7 +6987,8 @@ body {
     font-size: 13px; }
   .questions-row .bookmark-question {
     position: relative;
-    top: 5px; }
+    top: 5px;
+    cursor: pointer; }
     .questions-row .bookmark-question .fa {
       color: #d9534f; }
 

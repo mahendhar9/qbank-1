@@ -16440,7 +16440,16 @@ angular.module('Qbank')
     showQaCtrl.userBookmarks.$add(userObj);
     var message = "Bookmarked";
     Flash.create('success', message);
+  }
 
+  showQaCtrl.isAdmin = function(role) {
+    return firebaseService.queryUser(role);
+  }
+
+  showQaCtrl.deleteQuestion = function(qa) {
+    firebaseService.questions.$remove(qa);
+    var message = "Deleted";
+    Flash.create('danger', message);
   }
 
   

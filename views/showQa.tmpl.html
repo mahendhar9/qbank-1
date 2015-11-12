@@ -4,14 +4,14 @@
       <h2>{{showQaCtrl.subjectName()}}</h2><hr>
     </div>
     <div class="col-md-2">
-    <div flash-message="3000" ng-class="alertIn alertOut"></div>
+    <div flash-message="3000"></div>
     </div>
   </div>
   <div class="row questions-row">
     <div ng-repeat = "qa in showQaCtrl.questions()">
       <div class="row qa-repeat-row">
         <div class="col-md-offset-2 col-md-8 text-center">
-          <h4><span ng-show="qa.correct"><i class={{qa.faIcon}}></i></span><span ng-hide="qa.correct"><i class={{qa.faIcon}}></i></span>{{qa.question}}<span class="bookmark-question pull-right" ng-click="showQaCtrl.saveQuestion(qa)"><i class="fa fa-heart-o"></i></span></h4>
+          <h4><span ng-show="qa.correct"><i class={{qa.faIcon}}></i></span><span ng-hide="qa.correct"><i class={{qa.faIcon}}></i></span>{{qa.question}}<span ng-show = "showQaCtrl.isAdmin('role') == 1" ng-click="showQaCtrl.deleteQuestion(qa)" class="delete-question pull-right"><i class="fa fa-times"></i></span><span class="bookmark-question pull-right" ng-click="showQaCtrl.saveQuestion(qa)"><i class="fa fa-heart-o"></i></span></h4>
         </div>
         <div class="col-md-offset-2 col-md-8 text-center">
           <button type="button" class="btn btn-default qa-option" data="1" ng-click="showQaCtrl.check($event)" ng-class="{ 'answer-border': showCtrl.addBorder}">{{qa.option1}}</button>

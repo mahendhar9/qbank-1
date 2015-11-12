@@ -64,6 +64,14 @@
   .answer-border {
     border-color: green;
   }
+
+  .delete-question {
+    position:relative;
+    top:3px;
+    right:40px;
+    color: #d9534f;
+    cursor: pointer;
+  }
 }
 
 .score-row {
@@ -108,6 +116,7 @@
   .bookmark-question {
     position: relative;
     top:5px;
+    cursor: pointer;
 
     .fa {
       color: #d9534f;
