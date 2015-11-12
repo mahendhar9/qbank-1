@@ -10,9 +10,13 @@ angular.module('Qbank')
 
   firebaseService.userRef = firebaseService.rootRef.child("users");
 
+  firebaseService.userBookmarkRef = firebaseService.rootRef.child("userBookmarks");
+
   firebaseService.questions = $firebaseArray(firebaseService.qaRef);
 
   firebaseService.users = $firebaseArray(firebaseService.userRef);
+
+  firebaseService.userBookmarks = $firebaseArray(firebaseService.userBookmarkRef);
 
   firebaseService.userText = '';
 

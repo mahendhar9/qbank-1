@@ -19,7 +19,7 @@
     margin:0;
   }
 
-  .fa {
+  .fa-check-circle-o, .fa-times-circle-o {
     position: relative;
     left: -10px;
   }
@@ -96,11 +96,20 @@
   .btn-sm {
     font-size: 13px;
   }
+
+  .bookmark-question {
+    position: relative;
+    top:5px;
+
+    .fa {
+      color: #d9534f;
+    }
+  }
 }
 
 .score-text {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   border: 1px solid #D0D0CA;
-  padding: 5px;
+  padding: 3px;
 }

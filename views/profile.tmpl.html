@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row my-bookmarks-row">
+    <div class="col-md-offset-2 col-md-8 text-center">
+      <h2>My Bookmarks</h2><hr class="hr">
+    </div>
+  </div>
+
+  <div class="row bookmarks-row">
+    <div ng-repeat = "bookmark in profileCtrl.showBookmarks()">
+      <div class="col-md-offset-2 col-md-8 text-center">
+        <h4>{{bookmark.question}}</h4>
+        <p><span class="bookmark-answer">Answer : <strong>{{profileCtrl.correctAnswer(bookmark)}}</strong></span></p>
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>

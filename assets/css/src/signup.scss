@@ -22,3 +22,38 @@
     color: #D9534F
   }
 }
+
+.bookmarks-row {
+  margin-top: 3vh;
+
+  h4 {
+    font-family: 'Bitter', sans-serif;
+    color: #4A4545;
+  }
+
+  p {
+    font-size: 17px;
+    .bookmark-answer {
+      color: #d9534f;
+    }
+  }
+}
+
+.my-bookmarks-row {
+  margin-top: 9vh;
+
+  h2 {
+    color: #d9534f;
+    font-family: 'Satisfy', cursive;
+    margin-bottom: 3px;
+  }
+
+  hr {
+    border-bottom:2px solid #d9534f;
+    width: 15%;
+    margin: 0;
+    position: relative;
+    left: 25vw;
+  }
+  
+}

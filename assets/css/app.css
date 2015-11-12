@@ -6887,6 +6887,29 @@ body {
     width: 104px;
     color: #D9534F; }
 
+.bookmarks-row {
+  margin-top: 3vh; }
+  .bookmarks-row h4 {
+    font-family: 'Bitter', sans-serif;
+    color: #4A4545; }
+  .bookmarks-row p {
+    font-size: 17px; }
+    .bookmarks-row p .bookmark-answer {
+      color: #d9534f; }
+
+.my-bookmarks-row {
+  margin-top: 9vh; }
+  .my-bookmarks-row h2 {
+    color: #d9534f;
+    font-family: 'Satisfy', cursive;
+    margin-bottom: 3px; }
+  .my-bookmarks-row hr {
+    border-bottom: 2px solid #d9534f;
+    width: 15%;
+    margin: 0;
+    position: relative;
+    left: 25vw; }
+
 .newqa-row {
   margin-top: 25vh; }
   .newqa-row form {
@@ -6900,7 +6923,7 @@ body {
     border: 1px dashed #ddd;
     border-color: #E5DCDC;
     margin: 0; }
-  .qa-repeat-row .fa {
+  .qa-repeat-row .fa-check-circle-o, .qa-repeat-row .fa-times-circle-o {
     position: relative;
     left: -10px; }
   .qa-repeat-row .fa-check-circle-o {
@@ -6948,12 +6971,17 @@ body {
     color: #4A4545; }
   .questions-row .btn-sm {
     font-size: 13px; }
+  .questions-row .bookmark-question {
+    position: relative;
+    top: 5px; }
+    .questions-row .bookmark-question .fa {
+      color: #d9534f; }
 
 .score-text {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   border: 1px solid #D0D0CA;
-  padding: 5px; }
+  padding: 3px; }
 
 .subjects-row {
   margin-top: 30vh; }

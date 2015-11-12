@@ -16052,9 +16052,13 @@ angular.module('Qbank')
 
   firebaseService.userRef = firebaseService.rootRef.child("users");
 
+  firebaseService.userBookmarkRef = firebaseService.rootRef.child("userBookmarks");
+
   firebaseService.questions = $firebaseArray(firebaseService.qaRef);
 
   firebaseService.users = $firebaseArray(firebaseService.userRef);
+
+  firebaseService.userBookmarks = $firebaseArray(firebaseService.userBookmarkRef);
 
   firebaseService.userText = '';
 
@@ -16255,9 +16259,39 @@ angular.module('Qbank')
 angular.module('Qbank')
 .controller('ProfileCtrl', function(firebaseService, $stateParams){
   var profileCtrl = this;
+
+  profileCtrl.userBookmarks = firebaseService.userBookmarks;
+
+  profileCtrl.currentUser = function() {
+    return firebaseService.currentUser;
+  }
+
+  profileCtrl.showBookmarks = function() {
+    var bookmarks = [];
+    angular.forEach(profileCtrl.userBookmarks, function(bookmark) {
+      if (bookmark.userId == profileCtrl.currentUser().uid) {
+        bookmarks.push(bookmark.question);
+      }
+    });
+    console.log(bookmarks);
+    return bookmarks;
+  }
+
+  profileCtrl.correctAnswer = function(bookmark) {
+    var answer = bookmark.correctOption;
+    if (answer == 1) {
+      return bookmark.option1;
+    } else if (answer == 2) {
+      return bookmark.option2;
+    } else if (answer == 3) {
+      return bookmark.option3;
+    }
+  }
+
+
 });
 angular.module('Qbank')
-.controller('ShowQaCtrl', function(firebaseService, $stateParams, $location){
+.controller('ShowQaCtrl', function($firebaseObject, firebaseService, $stateParams, $location){
   var showQaCtrl = this;
   showQaCtrl.correct = false;
   showQaCtrl.submitText = "Submit"
@@ -16280,6 +16314,8 @@ angular.module('Qbank')
 
   showQaCtrl.users = firebaseService.users;
 
+  showQaCtrl.userBookmarks = firebaseService.userBookmarks;
+
   showQaCtrl.questions = function() {
     var questions = [];
     angular.forEach(firebaseService.questions, function(question){
@@ -16290,7 +16326,7 @@ angular.module('Qbank')
     return questions;
   }
 
-  showQaCtrl.check = function(obj, id) {
+  showQaCtrl.check = function(obj) {
     showQaCtrl.optionValue = obj.target.attributes.data.value;
   }
 
@@ -16305,7 +16341,7 @@ angular.module('Qbank')
 
   showQaCtrl.submit = function(correctAnswer, qa) {
     qa.submitted = true;
-    showQaCtrl.addBorder = showQaCtrl.answerBorder(correctAnswer, qa);
+    // showQaCtrl.addBorder = showQaCtrl.answerBorder(correctAnswer, qa);
     if (showQaCtrl.optionValue == correctAnswer) {
       qa.correct = true;
       showQaCtrl.addScore();
@@ -16316,13 +16352,27 @@ angular.module('Qbank')
     }
   }
 
-  showQaCtrl.answerBorder = function(correctAnswer, qa) {
-    console.log("Inside " + correctAnswer)
-    if (correctAnswer == qa.correctOption) {
-      return true;
-    } else {
-      return false;
-    }
+  //User can bookmark a question
+  showQaCtrl.saveQuestion = function(qa) {
+    var currentUser = showQaCtrl.currentUser().uid;
+    var barray = []
+    var userObj = {};
+    userObj.qaId = qa.$id;
+    userObj.userId = currentUser;
+    userObj.question = qa;
+
+    // angular.forEach(showQaCtrl.userBookmarks, function(bookmark){
+    //   if (bookmark.userId == currentUser) {
+    //     barray.push(bookmark);
+    //   }
+    // });
+    // angular.forEach(barray, function(singleBookmark){
+    //   if (indexOf(singleBookmark.)) {
+    //     barray.push(bookmark);
+    //   }
+    // });
+    showQaCtrl.userBookmarks.$add(userObj);
+
   }
 
 });
